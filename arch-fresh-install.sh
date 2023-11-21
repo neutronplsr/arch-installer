@@ -6,7 +6,7 @@
 
 
 #general just good programs to have
-sudo pacman -Syy --needed firefox libreoffice blueman gnome-terminal os-prober git
+sudo pacman -Syy --needed firefox libreoffice blueman gnome-terminal os-prober git wget linux-tools-meta gdu reflector tlp
 
 
 #aur helper of choice

@@ -37,7 +37,9 @@ yay stellarium
 yay bitwarden
 yay thunderbird
 yay lutris
-
+yay betterdiscordctl
+yay openasar
+yay discord
 
 #customization
 yay -S catppuccin-gtk-theme-mocha

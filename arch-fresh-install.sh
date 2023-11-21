@@ -23,8 +23,9 @@ yay -Sy --needed obsidian syncthing mullvad-vpn  code oss chrome spotify anacond
 yay -S catppuccin-gtk-theme-mocha
 curl -L https://raw.githubusercontent.com/catppuccin/gnome-terminal/v0.2.0/install.py | python3 -
 mkdr ~/.local/share/fonts
-sudo cp -r ~/Downloads/FiraFona ~/.local/share/fonts
-sudo cp -r ~/Downloads/syncthing-start.desktop /usr/share/applications/
+unzip FiraMono.zip
+sudo mv FiraFona* ~/.local/share/fonts
+sudo cp -r syncthing-start.desktop /usr/share/applications/
 
 #systemctl deamons
 sudo systemctl enable --now mullvad-daemon

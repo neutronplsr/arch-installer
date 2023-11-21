@@ -30,5 +30,3 @@ sudo cp -r syncthing-start.desktop /usr/share/applications/
 #systemctl deamons
 sudo systemctl enable --now mullvad-daemon
 sudo systemctl enable --now bluetooth.service
-sudo systemctl enable --now syncthing(this isnt right)
-

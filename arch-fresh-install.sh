@@ -16,7 +16,7 @@ sudo pacman -S git
 
 
 #aur helper of choice
-pacman -S --needed git base-devel && git clone https://aur.archlinux.org/yay.git && cd yay && makepkg -si
+pacman -S --needed base-devel && git clone https://aur.archlinux.org/yay.git && cd yay && makepkg -si
 yay
 
 #install gnome things that are good to have

@@ -6,13 +6,7 @@
 
 
 #general just good programs to have
-sudo pacman -Syy
-sudo pacman -S firefox
-sudo pacman -S libreoffice
-sudo pacman -S blueman
-sudo pacman -S gnome-terminal
-sudo pacman -S os-prober
-sudo pacman -S git
+sudo pacman -Syy --needed firefox libreoffice blueman gnome-terminal os-prober git
 
 
 #aur helper of choice
@@ -20,26 +14,10 @@ pacman -S --needed base-devel && git clone https://aur.archlinux.org/yay.git && 
 yay
 
 #install gnome things that are good to have
-yay gnome-bluetooth
-yay gnome-tweaks
-yay update-grub
+yay -Sy -needed gnome-bluetooth gnome-tweaks update-grub
 
 #install programs that are helpful
-yay obsidian
-yay syncthing
-yay mullvad vpn
-yay code oss
-yay chrome
-yay spotify
-yay anaconda
-yay steam
-yay stellarium
-yay bitwarden
-yay thunderbird
-yay lutris
-yay betterdiscordctl
-yay openasar
-yay discord
+yay -Sy --needed obsidian syncthing mullvad-vpn  code oss chrome spotify anaconda steam  stellarium bitwarden  thunderbird lutris betterdiscordctl openasar discord
 
 #customization
 yay -S catppuccin-gtk-theme-mocha
@@ -51,3 +29,5 @@ sudo cp -r ~/Downloads/syncthing-start.desktop /usr/share/applications/
 #systemctl deamons
 sudo systemctl enable --now mullvad-daemon
 sudo systemctl enable --now bluetooth.service
+sudo systemctl enable --now syncthing(this isnt right)
+

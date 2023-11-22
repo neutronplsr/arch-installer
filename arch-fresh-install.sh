@@ -1,20 +1,20 @@
 #! /usr/bin/bash
 
 #general just good programs to have
-pacman -Syy --needed firefox libreoffice blueman gnome-terminal os-prober git wget linux-tools-meta gdu reflector tlp bzip2 gzip lrzip lz4 lzip lzop xz zstd p7zip zip unzip unrar unarchiver xarchiver base-devel
+pacman -Syy --needed  --noconfirm firefox libreoffice blueman gnome-terminal os-prober git wget linux-tools-meta gdu reflector tlp bzip2 gzip lrzip lz4 lzip lzop xz zstd p7zip zip unzip unrar unarchiver xarchiver base-devel
 
 
 #aur helper of choice
 git clone https://aur.archlinux.org/yay.git 
 cd ~/yay 
-makepkg -si
+-u nobody makepkg -si
 yay
 
 #install gnome things that are good to have
-yay -Sy -needed gnome-bluetooth gnome-tweaks update-grub
+yay -Sy -needed   --noconfirm gnome-bluetooth gnome-tweaks update-grub
 
 #install programs that are helpful
-yay -Sy --needed obsidian syncthing mullvad-vpn  code oss chrome spotify anaconda steam  stellarium bitwarden  thunderbird lutris betterdiscordctl openasar discord
+yay -Sy --needed  --noconfirm obsidian syncthing mullvad-vpn  code oss chrome spotify anaconda steam  stellarium bitwarden  thunderbird lutris betterdiscordctl openasar discord
 
 #customization
 yay -S catppuccin-gtk-theme-mocha

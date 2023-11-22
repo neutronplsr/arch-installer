@@ -1,16 +1,13 @@
 #! /usr/bin/bash
 
-#if needed, uncomment this for gnome:
-#pacman -Sy gnome
-#systemctl enable --now gdm
-
-
 #general just good programs to have
-sudo pacman -Syy --needed firefox libreoffice blueman gnome-terminal os-prober git wget linux-tools-meta gdu reflector tlp bzip2 gzip lrzip lz4 lzip lzop xz zstd p7zip zip unzip unrar unarchiver xarchiver
+pacman -Syy --needed firefox libreoffice blueman gnome-terminal os-prober git wget linux-tools-meta gdu reflector tlp bzip2 gzip lrzip lz4 lzip lzop xz zstd p7zip zip unzip unrar unarchiver xarchiver base-devel
 
 
 #aur helper of choice
-pacman -S --needed base-devel && git clone https://aur.archlinux.org/yay.git && cd yay && makepkg -si
+git clone https://aur.archlinux.org/yay.git 
+cd ~/yay 
+makepkg -si
 yay
 
 #install gnome things that are good to have
@@ -24,9 +21,22 @@ yay -S catppuccin-gtk-theme-mocha
 curl -L https://raw.githubusercontent.com/catppuccin/gnome-terminal/v0.2.0/install.py | python3 -
 mkdr ~/.local/share/fonts
 unzip FiraMono.zip
-sudo mv FiraFona* ~/.local/share/fonts
-sudo cp -r syncthing-start.desktop /usr/share/applications/
+mv FiraFona* ~/.local/share/fonts
+cp -r syncthing-start.desktop /usr/share/applications/
 
 #systemctl deamons
-sudo systemctl enable --now mullvad-daemon
-sudo systemctl enable --now bluetooth.service
+systemctl enable mullvad-daemon
+systemctl enable bluetooth.service
+
+
+if [ -z $1 ];
+  then
+    break
+  elif [ "$1" == "gnome" ];
+  then
+    pacman -Syy --needed gnome
+    systemctl enable gdm
+fi
+
+
+reboot 

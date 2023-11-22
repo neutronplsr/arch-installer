@@ -6,7 +6,7 @@ pacman -Syy --needed  --noconfirm firefox libreoffice blueman gnome-terminal os-
 
 #aur helper of choice
 git clone https://aur.archlinux.org/yay.git 
-cd ~/yay 
+cd yay 
 -u nobody makepkg -si
 yay
 

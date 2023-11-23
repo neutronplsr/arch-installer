@@ -17,7 +17,7 @@ sudo pacman -Syy  --noconfirm
 
 #install general good utilities
 pacman -S --needed  --noconfirm os-prober git wget linux-tools-meta gdu reflector tlp bzip2 gzip lrzip lz4 lzip lzop xz zstd p7zip zip unzip unrar unarchiver xarchiver base-deval blueman nano pipewire blueman
-sudo systemctl enable bluetooth.service
+sudo systemctl start bluetooth
 sudo systemctl enable pipewire.service
 
 #install aur helper
@@ -26,7 +26,7 @@ cd yay
 makepkg -si
 yay
 
-cd 
+cd ..
 
 #install wanted desktop enviorment
 if [ "$1" == "gnome" ];
@@ -40,14 +40,14 @@ fi
 
 #install generally good programs
 yay  --needed  --noconfirm firefox libreoffice  obsidian syncthing mullvad-vpn  code oss chrome spotify anaconda steam  stellarium bitwarden  thunderbird lutris betterdiscordctl openasar discord update-gnome
-systemctl enable mullvad-daemon
+sudo systemctl enable mullvad-daemon
 
 
 #livova special customization
 
 if  [ "livova" == "$2" ];
     then 
-    yay -S catppuccin-gtk-theme-mocha
+    yay -S --noconfirm --needed catppuccin-gtk-theme-mocha
     curl -L https://raw.githubusercontent.com/catppuccin/gnome-terminal/v0.2.0/install.py | python3 -
     mkdr ~/.local/share/fonts
     unzip FiraMono.zip

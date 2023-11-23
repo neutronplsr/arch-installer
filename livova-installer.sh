@@ -32,14 +32,14 @@ cd
 if [ "$1" == "gnome" ];
   then
     echo "gnome install running..."
-    yay --needed  --noconfirm  gnome gnome-tweaks gnome-terminal gnome-bluetooth gnome-tweaks update-grub
-    systemctl enable gdm
+    sudo pacman -S --needed  --noconfirm  gnome gnome-tweaks gnome-terminal gnome-bluetooth gnome-tweaks
+    sudo systemctl enable gdm
   else
     echo "desktop env provided not found. will contiune as if you don't need one"
 fi
 
 #install generally good programs
-yay  --needed  --noconfirm firefox libreoffice  obsidian syncthing mullvad-vpn  code oss chrome spotify anaconda steam  stellarium bitwarden  thunderbird lutris betterdiscordctl openasar discord
+yay  --needed  --noconfirm firefox libreoffice  obsidian syncthing mullvad-vpn  code oss chrome spotify anaconda steam  stellarium bitwarden  thunderbird lutris betterdiscordctl openasar discord update-gnome
 systemctl enable mullvad-daemon
 
 

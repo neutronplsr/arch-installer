@@ -23,7 +23,7 @@ sudo systemctl enable pipewire.service
 #install aur helper
 git clone https://aur.archlinux.org/yay.git 
 cd yay 
-makepkg -si
+makepkg -si --noconfirm 
 yay
 
 cd ..
@@ -39,7 +39,7 @@ if [ "$1" == "gnome" ];
 fi
 
 #install generally good programs
-yay  --needed  --noconfirm firefox libreoffice  obsidian syncthing mullvad-vpn  code oss chrome spotify anaconda steam  stellarium bitwarden  thunderbird lutris betterdiscordctl openasar discord update-gnome
+yay  -Sy --needed  --noconfirm firefox libreoffice  obsidian syncthing mullvad-vpn  code oss chrome spotify anaconda steam  stellarium bitwarden  thunderbird lutris betterdiscordctl openasar discord update-gnome
 sudo systemctl enable mullvad-daemon
 
 
@@ -48,11 +48,11 @@ sudo systemctl enable mullvad-daemon
 if  [ "livova" == "$2" ];
     then 
     yay -S --noconfirm --needed catppuccin-gtk-theme-mocha
-    curl -L https://raw.githubusercontent.com/catppuccin/gnome-terminal/v0.2.0/install.py | python3 -
-    mkdr ~/.local/share/fonts
-    unzip FiraMono.zip
-    mv FiraFona* ~/.local/share/fonts
-    cp -r syncthing-start.desktop /usr/share/applications/
+    sudo curl -L https://raw.githubusercontent.com/catppuccin/gnome-terminal/v0.2.0/install.py | python3 -
+    sudo mkdr ~/.local/share/fonts
+    sudo unzip FiraMono.zip
+    sudo mv FiraFona* ~/.local/share/fonts
+    sudo cp -r syncthing-start.desktop /usr/share/applications/
 fi
 
 echo "Please reboot for best results."

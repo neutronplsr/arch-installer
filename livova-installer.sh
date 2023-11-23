@@ -16,7 +16,7 @@ fi
 sudo pacman -Syy  --noconfirm 
 
 #install general good utilities
-pacman -S --needed  --noconfirm os-prober git wget linux-tools-meta gdu reflector tlp bzip2 gzip lrzip lz4 lzip lzop xz zstd p7zip zip unzip unrar unarchiver xarchiver base-deval blueman nano pipewire blueman
+pacman -S --needed  --noconfirm os-prober git wget linux-tools-meta gdu reflector tlp bzip2 gzip lrzip lz4 lzip lzop xz zstd p7zip zip unzip unrar unarchiver xarchiver blueman nano pipewire blueman
 sudo systemctl start bluetooth
 sudo systemctl enable pipewire.service
 
@@ -49,7 +49,7 @@ if  [ "livova" == "$2" ];
     then 
     yay -S --noconfirm --needed catppuccin-gtk-theme-mocha
     sudo curl -L https://raw.githubusercontent.com/catppuccin/gnome-terminal/v0.2.0/install.py | python3 -
-    sudo mkdr ~/.local/share/fonts
+    sudo mkdir ~/.local/share/fonts
     sudo unzip FiraMono.zip
     sudo mv FiraFona* ~/.local/share/fonts
     sudo cp -r syncthing-start.desktop /usr/share/applications/

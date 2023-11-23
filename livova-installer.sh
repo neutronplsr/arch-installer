@@ -16,15 +16,14 @@ fi
 sudo pacman -Syy  --noconfirm 
 
 #install general good utilities
-pacman -S --needed  --noconfirm os-prober git wget linux-tools-meta gdu reflector tlp bzip2 gzip lrzip lz4 lzip lzop xz zstd p7zip zip unzip unrar unarchiver xarchiver base-deval blueman nano pipewire
-
+pacman -S --needed  --noconfirm os-prober git wget linux-tools-meta gdu reflector tlp bzip2 gzip lrzip lz4 lzip lzop xz zstd p7zip zip unzip unrar unarchiver xarchiver base-deval blueman nano pipewire blueman
 sudo systemctl enable bluetooth.service
 sudo systemctl enable pipewire.service
 
 #install aur helper
 git clone https://aur.archlinux.org/yay.git 
 cd yay 
--u nobody makepkg -si
+makepkg -si
 yay
 
 cd 

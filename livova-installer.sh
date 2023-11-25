@@ -16,7 +16,7 @@ fi
 sudo pacman -Syy  --noconfirm 
 
 #install general good utilities
-pacman -S --needed  --noconfirm os-prober git wget linux-tools-meta gdu reflector tlp bzip2 gzip lrzip lz4 lzip lzop xz zstd p7zip zip unzip unrar unarchiver xarchiver blueman nano pipewire blueman
+pacman -S --needed  --noconfirm os-prober git wget linux-tools-meta gdu reflector tlp bzip2 gzip lrzip lz4 lzip lzop xz zstd p7zip zip unzip unrar unarchiver xarchiver blueman nano pipewire blueman less
 sudo systemctl start bluetooth
 sudo systemctl enable pipewire.service
 

@@ -7,9 +7,9 @@
 
 #inputs in the form <desktop-env> <custom-config (cattpucin)>
 #make sure user gave enough arguments
-if [ -z "$1" ] || [ -z "$2" ];
+if [ -z "$1" ]
   then
-    echo "not enough arguments provided, please format as  \"livova-installer.sh <desktop-env> <custom-config>\" (this last is optional, has default value) exiting..."
+    echo "not enough arguments provided, please format as  \"livova-installer.sh <desktop-env> <custom-config>\" (this last is optional, has default value of null) exiting..."
     exit 0   
 fi
 
@@ -43,16 +43,27 @@ yay  -Sy --needed  --noconfirm firefox libreoffice  obsidian syncthing mullvad-v
 sudo systemctl enable mullvad-daemon
 
 
-#livova special customization
+#customization
+if [[ "$2" == "-"* ]]; then
+  
+  if [[ "$2" =~ "G" ]]; then  
+	yay  -Sy --needed  --noconfirm lutris steam
+  fi
 
-if  [ "livova" == "$2" ];
-    then 
-    yay -S --noconfirm --needed catppuccin-gtk-theme-mocha
+  if [[ "$2" =~ "L" ]]; then  
+	  yay -S --noconfirm --needed catppuccin-gtk-theme-mocha
     sudo curl -L https://raw.githubusercontent.com/catppuccin/gnome-terminal/v0.2.0/install.py | python3 -
     sudo mkdir ~/.local/share/fonts
     sudo unzip FiraMono.zip
     sudo mv FiraFona* ~/.local/share/fonts
     sudo cp -r syncthing-start.desktop /usr/share/applications/
+  fi
+
 fi
+
+
+
+
+
 
 echo "Please reboot for best results."

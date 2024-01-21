@@ -6,8 +6,9 @@ this is my personal arch-install script, meant to speed up future installs of li
 
 some assumptions:\
 	- you are in a  installed arch linux environment\
-	- you have: `base-devel git micro`\
- 	- you have: some network connection, if wireless  `networkmanager`
+	- you have: `linux linux-firmware linux-firmware-whence base base-devel networkmanager git`\
+ 	- you have: some network connection \
+	- you have: sudo privleges
 
 this script makes use of the following dot-file repos:\
 [dots-hyprland](https://github.com/end-4/dots-hyprland) \

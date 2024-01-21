@@ -6,7 +6,8 @@ this is my personal arch-install script, meant to speed up future installs of li
 
 some assumptions:\
 	- you are in a  installed arch linux environment\
-	- you have: `base-devel git micro`
+	- you have: `base-devel git micro`\
+ 	- you have: some network connection, if wireless  `networkmanager`
 
 this script makes use of the following dot-file repos:\
 [dots-hyprland](https://github.com/end-4/dots-hyprland) \
@@ -41,13 +42,17 @@ use "dot-files" i provide with the flag  `--pretty` \
 use "dot-files" that i use with the flag `--livovaStyle` 
 
 ### window/desktop managers:
-  - `gnome`: installs `gnome` (x11)
-  - `gnome-way`: installs `gnome` (wayland)
-  - `qtile`: installs `qtile` (x11)
-  - `qtile-way`: installs `qtile` (wayland)
-  - `hyprland`: installs `hyprland` (wayland)
-  - `hyprland-nvidia`: installs `hyprland` and nesscary addiotnal nvidia packages/config (wayland) ***YOU MUST USE THIS OR HYPRLAND WONT WOKR WITH NVIDIA CARDS***
-  - (eventually) cosmic (wayland)
+#### X11:
+  - `gnome`: installs `gnome` 
+  - `qtile`: installs `qtile`
+  
+#### wayland:
+  - `gnome-way`: installs `gnome`
+  - `qtile-way`: installs `qtile`
+  - `hyprland`: installs `hyprland`
+  - `hyprland-nvidia`: installs `hyprland` and nesscary addiotnal nvidia packages/config
+  	- ***YOU MUST USE THIS OR HYPRLAND WONT WOKR WITH NVIDIA CARDS***
+  - (eventually) `cosmic`
    
 ### optional packages:
   - `nvidia`: installs `nvidia-dkms`

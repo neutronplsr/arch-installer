@@ -26,7 +26,7 @@ this script makes use of the following dot-file repos:\
 `bzip2, gzip, lrzip, lz4, lzip, lzop, xz, zstd, p7zip, zip, unzip, unrar, unarchiver, xarchiver`: compression and extraction utilities\
 `less`: shows bits of files, similar to cat\
 `blueman`: bluetooth handling\
-`pipewire`: audio service\
+`pipewire, pipewire-pulse, pipewire-alsa`: audio service\
 `firefox`: web browser
 
 
@@ -41,14 +41,19 @@ use "dot-files" i provide with the flag  `--pretty` \
 use "dot-files" that i use with the flag `--livovaStyle` 
 
 ### window/desktop managers:
-  - gnome: installs gnome (x11)
-  - qtile: installs qtile (x11)
-  - hyprland: installs hyprland (wayland)
+  - `gnome`: installs `gnome` (x11)
+  - `gnome-way`: installs `gnome` (wayland)
+  - `qtile`: installs `qtile` (x11)
+  - `qtile-way`: installs `qtile` (wayland)
+  - `hyprland`: installs `hyprland` (wayland)
+  - `hyprland-nvidia`: installs `hyprland` and nesscary addiotnal nvidia packages/config (wayland) ***YOU MUST USE THIS OR HYPRLAND WONT WOKR WITH NVIDIA CARDS***
   - (eventually) cosmic (wayland)
    
-### optional arguments:
-  - nvidia: installs nvidia-dkms
-  - code: installs vs code, python, pip, pyenv
-  - space: installs stellarium, astropy, and other misc. python things
-  - gaming: installs steam, lutris, wine, qbit
-  - useful: installs mullvadvpn, pcloud, discord, obsidian, second firefox client
+### optional packages:
+  - `nvidia`: installs `nvidia-dkms`
+  - `code`: installs `vs code, python, pip, pyenv`
+  - `space`: installs `stellarium, astropy,` and other misc. python things ***THIS WILL ALSO INSTALL `code` AUTOMATICUALLY***
+  - `gaming`: installs `steam, lutris, wine, qbit, xpadneo`
+  - `useful`: installs `mullvadvpn, pcloud, discord, obsidian, second firefox client`
+  - `all`: installs all optional packages
+

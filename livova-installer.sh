@@ -1,19 +1,9 @@
 #! /usr/bin/bash
-
 # some assumptions:
 #   you have: installed arch linux 
 #   you have: linux linux-firmware linux-firmware-whence base base-devel networkmanager git
 #   you have: some network connection
 #   you have: sudo privleges
-
-
-#inputs in the form <desktop-env> <custom-config (cattpucin)>
-#make sure user gave enough arguments
-if [ -z "$1" ]
-  then
-    echo "not enough arguments provided, please format as  \"livova-installer.sh <desktop-env> <custom-config>\" (this last is optional, has default value of null) exiting..."
-    exit 0   
-fi
 
 #setup things
 echo "running setup..."
@@ -164,8 +154,6 @@ if [ "$wm_check" == 0 ]; then
         esac
 fi
 
-
-
 opt1="nvidia"
 opt2="code"
 opt3="space"
@@ -227,7 +215,7 @@ eval "paru -S --needed --noconfirm $packgelist"
 
 if [ "$prty" == 1 ]; then
   echo "installing recommended dot files"
-f [ "$wm_check" == 0 ]; then
+if [ "$wm_check" == 0 ]; then
     case "$wmInst" in 
             "$wm1" | "$wm3")
               echo "installing gnome-dots"
@@ -241,7 +229,6 @@ f [ "$wm_check" == 0 ]; then
 
               paru -S --needed --noconfirm gnome-tweak-tool
               sudo cp -r ./misc/fonts/* /usr/share/fonts/
-
 
               array=( https://extensions.gnome.org/extension/3628/arcmenu/
               https://extensions.gnome.org/extension/5338/aylurs-widgets/ 
@@ -268,7 +255,6 @@ f [ "$wm_check" == 0 ]; then
                   gnome-extensions enable ${EXTENSION_ID}
                   rm ${EXTENSION_ID}.zip
               done
-
               ;;
             "$wm2" | "$wm4")
               echo "installing qtile-dots"
@@ -278,9 +264,7 @@ f [ "$wm_check" == 0 ]; then
               cd ~/repos/
               git clone https://github.com/antoniosarosi/dotfiles.git
               cp -r dotfiles/.config/qtile ~/.config
-              
               ;;
-
             "$wm5" | "$wm6")
               echo "installing dots-hyprland"
               cd ~/repos/
@@ -300,16 +284,11 @@ f [ "$wm_check" == 0 ]; then
 
               cp -r .config/* ~/.config/
               cp -r .local/* ~/.local/
-
               ;;
         esac
 fi
-  
-
   elif [ "$livvy" == 1 ]; then
   echo "installing livova dot files not supported yet sorry :("
 fi
 
-
-
-echo "please reboot for best resulusts" 
+echo "please reboot for best results" 

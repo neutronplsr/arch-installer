@@ -1,8 +1,10 @@
 #! /usr/bin/bash
 
-# THIS SCRIPT ASSUMES THE FOLLOWING:
-#   INSTALLED PACKAGES: linux linux-firmware linux-firmware-whence base base-devel networkmanager
-#   SUDO PRIVLEGES FOR RUNNING USER
+# some assumptions:
+#   you have: installed arch linux 
+#   you have: linux linux-firmware linux-firmware-whence base base-devel networkmanager git
+#   you have: some network connection
+#   you have: sudo privleges
 
 
 #inputs in the form <desktop-env> <custom-config (cattpucin)>
@@ -13,57 +15,54 @@ if [ -z "$1" ]
     exit 0   
 fi
 
+#setup things
+echo "running setup..."
+mkdir ~/repos/
 sudo pacman -Syy  --noconfirm 
 
-#install general good utilities
-sudo pacman -S --needed  --noconfirm os-prober git wget linux-tools-meta gdu reflector tlp bzip2 gzip lrzip lz4 lzip lzop xz zstd p7zip zip unzip unrar unarchiver xarchiver blueman nano pipewire blueman less
+#install aur helper
+echo "installing paru..."
+git clone https://aur.archlinux.org/paru.git ~/repos/
+cd ~/repos/paru 
+makepkg -si --noconfirm 
+cd ~
+
+#install base case programs
+echo "installing base programs"
+paru -S --needed  os-prober  wget  linux-tools-meta dust reflector tlp bzip2 gzip lrzip lz4 lzip lzop xz zstd p7zip zip unzip unrar unarchiver xarchiver  less blueman pipewire pipewire-pulse pipewire-alsa firefox 
+
 sudo systemctl start bluetooth
 sudo systemctl enable pipewire.service
 
-#install aur helper
-git clone https://aur.archlinux.org/yay.git 
-cd yay 
-makepkg -si --noconfirm 
-yay
-
-cd ..
-
-#install wanted desktop enviorment
-if [ "$1" == "gnome" ];
-  then
-    echo "gnome install running..."
-    sudo pacman -S --needed  --noconfirm  gnome gnome-tweaks gnome-terminal gnome-bluetooth gnome-tweaks
-    sudo systemctl enable gdm
-  else
-    echo "desktop env provided not found. will contiune as if you don't need one"
-fi
-
-#install generally good programs
-yay  -Sy --needed  --noconfirm firefox libreoffice  obsidian syncthing mullvad-vpn  code oss chrome spotify anaconda steam  stellarium bitwarden  thunderbird lutris betterdiscordctl openasar discord update-gnome
-sudo systemctl enable mullvad-daemon
 
 
-#customization
-if [[ "$2" == "-"* ]]; then
-  
-  if [[ "$2" =~ "G" ]]; then  
-	yay  -Sy --needed  --noconfirm lutris steam
-  fi
+wm1="gnome"
+wm2="qtile"
+wm3="gnome-way"
+wm4="qtile-way"
+wm5="hyprland"
+wm6="hyprland-nvidia"
 
-  if [[ "$2" =~ "L" ]]; then  
-	  yay -S --noconfirm --needed catppuccin-gtk-theme-mocha
-    sudo curl -L https://raw.githubusercontent.com/catppuccin/gnome-terminal/v0.2.0/install.py | python3 -
-    sudo mkdir ~/.local/share/fonts
-    sudo unzip FiraMono.zip
-    sudo mv FiraFona* ~/.local/share/fonts
-    sudo cp -r syncthing-start.desktop /usr/share/applications/
-  fi
+wm_check=0
 
-fi
+single_wm_check() {
+  found=0 
+  for args in "$@"; do
+    case "$args" in 
+            "$wm1" | "$wm2" | "$wm3" | "$wm4" | "$wm5" | "$wm6")
+                ((found++))
+                ;;
+        esac
+    done
+
+    if [ "$found" -gt 1 ]; then
+        echo "too many window/desktop arguments passed. please only provide one. the script will finish as if you passed no winodw manager arugments."
+        wm_check=1
+    fi
+}
+
+single_wm_check "$@"
 
 
 
-#test
-
-
-echo "Please reboot for best results."
+echo "please reboot for best results!"

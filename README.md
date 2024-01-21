@@ -46,7 +46,7 @@ use "dot-files" that i use with the flag `--livovaStyle`
   - hyprland: installs hyprland (wayland)
   - (eventually) cosmic (wayland)
    
-### optional packages:
+### optional arguments:
   - nvidia: installs nvidia-dkms
   - code: installs vs code, python, pip, pyenv
   - space: installs stellarium, astropy, and other misc. python things

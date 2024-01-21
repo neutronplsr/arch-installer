@@ -2,8 +2,6 @@
 
 # ***THIS SCRIPT IS UNDER DEVOLPMENT, AND MAY NOT WORK AT TIME OF WRITING***
 
-
-# readme
 this is my personal arch-install script, meant to speed up future installs of linux on any machine i may use. 
 some assumptions:
 	you are in a  installed arch linux environment

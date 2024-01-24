@@ -2,6 +2,7 @@
 # some assumptions:
 #   you have: installed arch linux 
 #   you have: linux linux-firmware linux-firmware-whence base base-devel networkmanager git
+#   you have: rust installed (for paru)
 #   you have: some network connection
 #   you have: sudo privleges
 
